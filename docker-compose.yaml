@@ -9,15 +9,19 @@ services:
     # (this is just an example, not intended to be a production configuration)
     command: --default-authentication-plugin=mysql_native_password
     restart: always
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: 123
       MYSQL_DATABASE: money
       MYSQL_USER: amir
-      MYSQL_USER_PASSWORD: 123
+      MYSQL_USER_PASSWORD: 123\
+      MYSQL_ROOT_HOSTS: '%'
+
 
 
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"
